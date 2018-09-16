@@ -2,7 +2,7 @@
 <div>
   <MinimalComponent />
 
-  <div v-for="(section, i) in home.sections" :key="i">
+  <div v-for="(section, i) in home" :key="i">
     <div v-for="(item, j) in section.items"
       :key="`${i}-${j}`"
     >
@@ -20,17 +20,20 @@ export default {
 
   async fetch(context) {
     S.home = {
-      items: [],
       sections: [
         {items: []}
       ]
     }
   },
 
+  data() {return {
+
+  }},
+
   computed: {
     home() {
       return S.home || {}
-    },
+    }
   },
 }
 </script>
