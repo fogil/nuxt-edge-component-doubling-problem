@@ -17,11 +17,6 @@ module.exports = {
 
   build: {
     extend(config, context) {
-      if (!context.isDev) {
-        config.devtool = 'none'
-      }
-
-      // Nuxt 2.0 is supposed to change this to .client, maybe?
       if (context.isClient) {
         config.externals = {
           axios: 'axios',

@@ -2,12 +2,13 @@
 <div>
   <MinimalComponent />
 
-  <div v-for="(section, i) in pg.sections" :key="i">
-    <div v-for="(item, j) in hamburger(section)"
+  <div v-for="(section, i) in home.sections" :key="i">
+    <div v-for="(item, j) in section.items"
       :key="`${i}-${j}`"
     >
     </div>
   </div>
+
 </div>
 </template>
 
@@ -19,21 +20,15 @@ export default {
 
   async fetch(context) {
     S.home = {
+      items: [],
       sections: [
         {items: []}
       ]
     }
   },
 
-  methods: {
-    hamburger(section) {
-      return []
-    },
-
-  },
-
   computed: {
-    pg() {
+    home() {
       return S.home || {}
     },
   },
